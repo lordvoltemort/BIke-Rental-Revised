@@ -33,7 +33,7 @@ window.onclick = function(event) {
 
 /*image slide show */
 
-var picPaths = ['shillong.jpg','kochi.jpg','ff78ff16dc25e5bb1b97f17a829761ac.jpg','Affordable-Bikes.jpg','lightColor.jpeg'];
+var picPaths = ['images/shillong.jpg','images/kochi.jpg','images/ff78ff16dc25e5bb1b97f17a829761ac.jpg','images/Affordable-Bikes.jpg','images/lightColor.jpeg'];
 	var curPic = -1;
 	//preload the images for smooth animation
 	var imgO = new Array();
@@ -75,33 +75,33 @@ var picPaths = ['shillong.jpg','kochi.jpg','ff78ff16dc25e5bb1b97f17a829761ac.jpg
  * data (userid,bikeid, startdate and enddate)
  **************************************************************************************************************/
 	function passImageId(intvalue,startdate,enddate) {
-	var xhttp;
-	var val = intvalue;
+  	var xhttp;
+  	var val = intvalue;
     var sdate = startdate;
     var edate = enddate;
-		console.log("val is : " ,intvalue);
-    console.log("start date is : " ,startdate);
-    console.log("end date is : " ,enddate);
-    var dataObj = new Object();
-    dataObj.imageid = val;
-    dataObj.fdate = sdate;
-    dataObj.ldate = edate;
-    console.log("selected data is : ",dataObj);
+		// console.log("val is : " ,intvalue);
+    // console.log("start date is : " ,startdate);
+    // console.log("end date is : " ,enddate);
+    // var dataObj = new Object();
+    // dataObj.imageid = val;
+    // dataObj.fdate = sdate;
+    // dataObj.ldate = edate;
+    // console.log("selected data is : ",dataObj);
 
 		if (window.XMLHttpRequest) {
 		// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
-	} else {
-		// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("txtHint").innerHTML = this.responseText;
-		}
-	};
-	xmlhttp.open("GET"
-	,"http://localhost/bootstrap-datetimepicker-master/sample in bootstrap v3/getuser.php?q="+ intvalue,true);
+  	} else {
+  		// code for IE6, IE5
+  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+  	xmlhttp.onreadystatechange = function() {
+  		if (this.readyState == 4 && this.status == 200) {
+  			document.getElementById("txtHint").innerHTML = this.responseText;
+  		}
+  	};
+	xmlhttp.open("GET","http://localhost/BIke-Rental-Revised/bootstrap-datetimepicker-master/sample in bootstrap v3/getuser.php?q="+ intvalue + "&startdate = " + startdate + " enddate = " + enddate
+,true);
 	xmlhttp.send();
 
 }
