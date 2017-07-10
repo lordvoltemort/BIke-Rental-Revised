@@ -42,7 +42,7 @@ $user_id = $_SESSION['user_id'];
 
 
 
-$sql = " UPDATE users SET user_id = '$user_id' ,start_date = '$start',end_date='$end'  WHERE bike_id= '$q' ";
+//$sql = " UPDATE users SET user_id = '$user_id' ,start_date = '$start',end_date='$end'  WHERE bike_id= '$q' ";
 $con = mysqli_connect('localhost','Rahul','Koqa313*@3');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
@@ -55,12 +55,12 @@ if(loggedin())
 }    
 
 mysqli_select_db($con,"testing");
-$sql="SELECT * FROM bikes WHERE image_id = '".$q."'";
-//$sql = " UPDATE bikes SET user_id = '$user_id' ,start_date = '$start',end_date='$end'  WHERE image_id= '$q' ";
+//$sql="SELECT * FROM bikes WHERE image_id = '".$q."'";
+$sql = " UPDATE bikes SET user_id = '$user_id' ,start_date = '$start',end_date='$end'  WHERE image_id= '$q' ";
 $result = mysqli_query($con,$sql);
 
-mysqli_close($con);
 
+/*
 echo "<table>
 <tr>
 <th>user_id</th>
@@ -69,7 +69,6 @@ echo "<table>
 <th>end_date</th>
 <th>image_id</th>
 </tr>";
-
 while($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     echo "<td>" . $row['user_id'] . "</td>";
@@ -80,7 +79,8 @@ while($row = mysqli_fetch_array($result)) {
     echo "</tr>";
 }
 echo "</table>";
-
+mysqli_close($con);
+*/
 
 ?>
 </body>

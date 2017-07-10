@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="w3.css">
+<script type="text/javascript">
+    function test(test) {
+        var temp = test;
+        alert(temp);
+        var updateVal = 'NULL';
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+//            document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET","http://localhost/BIke-Rental-Revised/bootstrap-datetimepicker-master/sample in bootstrap v3/updateBikesTable.php?q="+updateVal, true);
+    xmlhttp.send();
+
+    }
+</script>
 <style>
 table {
     width: 100%;
@@ -25,6 +49,10 @@ table#t01 th    {
 }
 
 </style>
+<script type="text/javascript">
+    
+</script>
+
 </head>
 <body>
 
@@ -55,10 +83,12 @@ require 'connect.inc.php';
 
   
         if (!$row['start_date'] || !$row['end_date']) {
-            echo "<td> " . " <input type = 'checkbox' checked <?php echo isChecked() ?>  " . "</td>";    
+            $temp = $row['bike_id'];
+            echo "<td> " . " <input type = 'checkbox' checked >" . "</td>";    
         }else{
-            echo "<td>" . " <input type = 'checkbox'   <?php  ?>  " . "</td>";    
-            $imageValue =  $row['image_id'];
+            $temp = $row['bike_id'];
+            echo "<td>" . " <input type = 'checkbox' onclick = 'passImageId( $temp )'  >" . "</td>";    
+//            $imageValue =  $row['image_id'];
         }
 
         
@@ -73,11 +103,13 @@ require 'connect.inc.php';
     # if value exists, set $exists to true
     if ($exists) {
         return "checked";
+        
     } else {
         return "";
     }
 }
 
     ?>
+    <br><br><input type="submit" name="Submit" class="w3-button w3-block w3-green">
 </body>
 </html> 

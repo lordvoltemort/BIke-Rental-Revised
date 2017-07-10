@@ -22,7 +22,7 @@ function myTopHeadNav() {
 }
 
 // Get the sign up modal
-var modal = document.getElementById('id02');
+var modal = document.getElementById('id02');ss
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
