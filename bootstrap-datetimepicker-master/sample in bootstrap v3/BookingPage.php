@@ -20,6 +20,15 @@
 	$_SESSION["sdate"] = $start;
 	$_SESSION["edate"] = $end ;
 
+	$interval = $resultend->diff($resultstart);
+    echo $elapsed = $interval->format('%y years %m months %a days %h hours %i minutes %s seconds');
+    $elapsed1 = $interval->format('%a');
+    $elapsed2 = $interval->format('%h');
+    $test = ($elapsed1 * 24 );
+    $elapsed3 = $interval->format('%i');
+    $test2 = $elapsed3 /60;
+    echo $totalTime=  $elapsed2 + $test + $test2;
+    $_SESSION["totalTime"] = $totalTime; 
 
 /**************************************************************************************************************** 
  *                                                                                                              * 
